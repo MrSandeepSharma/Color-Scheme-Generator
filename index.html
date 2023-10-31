@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Color Scheme Generator</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <!-- CSS File -->
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body class="bg-white">
+    <main>
+      <section>
+        <h1 class="sr-only">Color Scheme Generator</h1>
+        <form class="grid" id="color-picker">
+          <label for="color" hidden>Select Color</label>
+          <input type="color" id="color" name="color" value="#F55A5A" />
+          <div class="select">
+            <label for="color-picker" hidden>Select Scheme type</label>
+            <select name="scheme-type" id="scheme-type-select" required>
+              <option value="Monochrome">Monochrome</option>
+              <option value="Monochrome-dark">Monochrome-dark</option>
+              <option value="Monochrome-light">Hamster</option>
+              <option value="Analogic">Analogic</option>
+              <option value="Complement">Complement</option>
+              <option value="Analogic-complement">Analogic-complement</option>
+              <option value="Triad">Triad</option>
+            </select>
+          </div>
+          <button class="btn bg-white">Get color scheme</button>
+        </form>
+        <div id="scheme-container" class="scheme-container flex"></div>
+      </section>
+    </main>
+    <div id="tooltip" class="tooltip flex"></div>
+
+    <!-- JS File -->
+    <script src="./script.js"></script>
+  </body>
+</html>

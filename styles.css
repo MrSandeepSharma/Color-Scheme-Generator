@@ -1,0 +1,189 @@
+:root {
+  --color-white: #ffffff;
+  --base-color-light: #2b283a;
+  --base-color-normal: #374151;
+  --base-color-dark: #111827;
+
+  --ff-base: "Inter", sans-serif;
+  --fw-normal: 400;
+  --fw-bold: 700;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: var(--ff-base);
+  font-weight: var(--fw-normal);
+}
+
+/* Button */
+.btn {
+  color: var(--base-color-normal);
+  border: 2px solid var(--base-color-light);
+  border-radius: 4px;
+  padding: 0.2em 0.7em;
+  font-size: 1.25rem;
+  font-weight: var(--fw-bold);
+}
+
+.btn:hover {
+  background-color: var(--base-color-normal);
+  color: var(--color-white);
+}
+
+/* utility classes */
+.sr-only {
+  border: 0 !important;
+  clip: rect(1px, 1px, 1px, 1px) !important;
+  -webkit-clip-path: inset(50%) !important;
+  clip-path: inset(50%) !important;
+  height: 1px !important;
+  margin: -1px !important;
+  overflow: hidden !important;
+  padding: 0 !important;
+  position: absolute !important;
+  width: 1px !important;
+  white-space: nowrap !important;
+}
+
+.flex {
+  display: flex;
+}
+
+.grid {
+  display: grid;
+}
+
+.bg-white {
+  background-color: var(--color-white);
+}
+
+/* Form */
+form {
+  grid-template-areas:
+    "color  type type type type"
+    "submit submit submit submit submit";
+  gap: 0.5em;
+  padding: 1em;
+  box-shadow: 0 2px 7px var(--base-color-light);
+}
+
+input[type="color"] {
+  grid-area: color;
+  padding: 0.12em;
+}
+
+.select {
+  grid-area: type;
+  position: relative;
+  border: 2px solid var(--base-color-normal);
+  border-radius: 0.25em;
+  padding: 0.25em 0.5em;
+}
+
+.select::after {
+  position: absolute;
+  top: 40%;
+  right: 15px;
+  content: "";
+  width: 0.8em;
+  height: 0.5em;
+  background-color: var(--base-color-dark);
+  clip-path: polygon(100% 0%, 0 0%, 50% 100%);
+}
+
+form button {
+  grid-area: submit;
+}
+
+select,
+button {
+  cursor: pointer;
+}
+
+select {
+  color: var(--base-color-dark);
+  appearance: none;
+  background-color: transparent;
+  border: none;
+  padding: 0 1em 0 0;
+  margin: 0;
+  width: 100%;
+  font-family: inherit;
+  font-size: inherit;
+}
+
+/* LayoutL */
+.scheme-container {
+  flex-direction: column;
+  gap: 1em;
+  padding: 1em;
+}
+
+.scheme {
+  width: 100%;
+  height: 10em;
+  margin-bottom: 0.5em;
+  animation: fade-in 0.6s ease-in;
+}
+
+.scheme-container span {
+  color: var(--base-color-light);
+  text-align: center;
+  display: block;
+}
+
+.tooltip {
+  position: fixed;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--base-color-dark);
+  color: var(--color-white);
+  width: 46vw;
+  height: 2em;
+  top: 15%;
+  left: -5px;
+  border-radius: 8px;
+  transform: translateX(-100%);
+  transition: all 0.6s ease-in-out;
+}
+
+/* animation */
+
+@keyframes fade-in {
+  from {
+    opacity: 0%;
+  }
+  to {
+    opacity: 100%;
+  }
+}
+
+/* For Bigger Devices */
+@media (min-width: 40.625em) {
+  form {
+    grid-template-areas: ". . color type type submit . .";
+    margin-bottom: 2em;
+  }
+
+  .scheme-container {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0;
+  }
+
+  .scheme {
+    width: 200px;
+    min-height: 50vh;
+  }
+
+  .tooltip {
+    width: 15vw;
+  }
+}
